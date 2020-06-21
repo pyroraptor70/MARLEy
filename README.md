@@ -19,6 +19,3 @@ The Multi-user AR Laboratory Experience (MARLEy) is intended to be an augmented 
 [Unity!](https://unity.com/) - Real-time 3D development platform
 
 [Vuforia!](https://www.ptc.com/en/products/augmented-reality/vuforia) - A comprehensive, scalable enterprise AR platform
-
-# Author
-Matthew Henricks
