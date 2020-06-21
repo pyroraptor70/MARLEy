@@ -1,4 +1,4 @@
-![alt text](https://github.com/pyroraptor70/MARLEy/blob/master/logo2.png?raw=true)
+![alt text](https://github.com/pyroraptor70/MARLEy/blob/master/Images/logo2.png?raw=true)
 # MARLEy
 
 The Multi-user AR Laboratory Experience (MARLEy) is intended to be an augmented environment for interactive experiences, and real-time feedback. This is accomplished with physical objects and 3D-rendered models using QR Marker tracking to provide a low-cost solution to a difficult problem.
@@ -7,7 +7,7 @@ The Multi-user AR Laboratory Experience (MARLEy) is intended to be an augmented 
 1. Clone the [repository!](https://github.com/pyroraptor70/MARLEy.git)
 2. Start Unity
 3. In Unity, go to File -> Open Project
-4. Select the repo folder/Marley
+4. Select the repo folder/MarleySimulation
 5. Open it
 
 # Run Simulation
