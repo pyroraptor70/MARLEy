@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="beakerClip" size="0.070000 0.059062" />
+    <ImageTarget name="dropperClip" size="0.061000 0.063773" />
+  </Tracking>
+</QCARConfig>
