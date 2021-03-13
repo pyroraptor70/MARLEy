@@ -31,6 +31,7 @@ public class LiquidControl : MonoBehaviour
         // foreach(Chemical c in chemicals){color+=c.c*c.v;}color=color/h;
         rend.material.color = color;
         h=transform.localScale.y;
+        chemicals=new List<Chemical>();
     }
     public void addLiquid(Chemical chemical){
         if(h+chemical.v<=hMax){
@@ -39,7 +40,7 @@ public class LiquidControl : MonoBehaviour
             {
                 if(c.n==chemical.n){c.v+=chemical.v;flag=false;}
             }
-            if(flag){chemicals.Add(chemical);}
+            if(flag){Chemical c=new Chemical(chemical.v,chemical.c,chemical.n);chemicals.Add(c);}
             h+=chemical.v;
             Color color=new Vector4(0,0,0,0);
             foreach(Chemical c in chemicals){color+=c.c*c.v;}color=color/h;
@@ -47,8 +48,9 @@ public class LiquidControl : MonoBehaviour
             // color=(color*h+c*d)/(h+d);
             // color.a=a;
             rend.material.color = color;
-            transform.localScale += new Vector3(0,chemical.v,0);
-            transform.position += new Vector3(0,chemical.v,0);
+            transform.localScale+=Vector3.up*chemical.v;
+            transform.Translate(Vector3.up * chemical.v);
         }
+        Debug.Log(h);
     }
 }
