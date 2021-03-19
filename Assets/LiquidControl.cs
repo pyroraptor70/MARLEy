@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Chemical{
+
+public class Chemical {
     public float v;
     public Color c;
     public string n;
-    public Chemical(float volume, Color color, string name){
-        v=volume;
-        c=color;
-        n=name;
+    public Chemical(float volume, Color color, string name) {
+        v = volume;
+        c = color;
+        n = name;
     }
 }
-public class LiquidControl : MonoBehaviour
-{
+
+public class LiquidControl : MonoBehaviour {
     // Creates a material from shader and texture references.
     // public GameObject cylinder;
     public Shader shader;
@@ -22,35 +23,46 @@ public class LiquidControl : MonoBehaviour
     private Renderer rend;
     private float h;
     private List<Chemical> chemicals;
-    void Start()
-    {
+
+    void Start() {
         rend = GetComponent<Renderer>();
         rend.material = new Material(shader);
         rend.material.mainTexture = texture;
-        Color color=new Vector4(0,0,0,0);
+        Color color = new Vector4(0, 0, 0, 0);
         // foreach(Chemical c in chemicals){color+=c.c*c.v;}color=color/h;
         rend.material.color = color;
-        h=transform.localScale.y;
-        chemicals=new List<Chemical>();
+        h = transform.localScale.y;
+        chemicals = new List<Chemical>();
     }
-    public void addLiquid(Chemical chemical){
-        if(h+chemical.v<=hMax){
-            bool flag=true;
-            foreach (Chemical c in chemicals)
-            {
-                if(c.n==chemical.n){c.v+=chemical.v;flag=false;}
+
+    public void addLiquid(Chemical chemical) {
+        if (h+chemical.v <= hMax) {
+            bool flag = true;
+            foreach (Chemical c in chemicals) {
+                if (c.n == chemical.n) {
+                    c.v += chemical.v;
+                    flag = false;
+                }
             }
-            if(flag){Chemical c=new Chemical(chemical.v,chemical.c,chemical.n);chemicals.Add(c);}
-            h+=chemical.v;
-            Color color=new Vector4(0,0,0,0);
-            foreach(Chemical c in chemicals){color+=c.c*c.v;}color=color/h;
+            if (flag) {
+                Chemical c = new Chemical(chemical.v, chemical.c, chemical.n);
+                chemicals.Add(c);
+            }
+            h += chemical.v;
+            Color color = new Vector4(0, 0, 0, 0);
+            foreach (Chemical c in chemicals) {
+                color += c.c * c.v;
+            }
+            color = color/h;
+
             // float a=color.a;
             // color=(color*h+c*d)/(h+d);
             // color.a=a;
             rend.material.color = color;
-            transform.localScale+=Vector3.up*chemical.v;
+            transform.localScale += Vector3.up * chemical.v;
             transform.Translate(Vector3.up * chemical.v);
         }
         Debug.Log(h);
     }
+
 }
